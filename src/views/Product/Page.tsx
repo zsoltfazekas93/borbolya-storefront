@@ -44,7 +44,7 @@ class Page extends React.PureComponent<
     return this.props.product.images.length > 1;
   }
 
-  populateBreadcrumbs = product => [
+  populateBreadcrumbs = (product) => [
     {
       link: generateCategoryUrl(product.category.id, product.category.name),
       value: product.category.name,
@@ -59,7 +59,7 @@ class Page extends React.PureComponent<
     const { product } = this.props;
     if (product.variants && this.state.variantId) {
       const variant = product.variants
-        .filter(variant => variant.id === this.state.variantId)
+        .filter((variant) => variant.id === this.state.variantId)
         .pop();
       if (variant.images.length > 0) {
         return variant.images;
@@ -71,10 +71,10 @@ class Page extends React.PureComponent<
     }
   };
 
-  renderImages = product => {
+  renderImages = (product) => {
     const images = this.getImages();
     if (images && images.length) {
-      return images.map(image => (
+      return images.map((image) => (
         <a href={image.url} target="_blank">
           <CachedImage url={image.url} key={image.id}>
             <Thumbnail source={product} />
@@ -113,7 +113,7 @@ class Page extends React.PureComponent<
 
             {/*  */}
             <Media query={{ maxWidth: smallScreen }}>
-              {matches =>
+              {(matches) =>
                 matches ? (
                   <>
                     <GalleryCarousel images={this.getImages()} />
