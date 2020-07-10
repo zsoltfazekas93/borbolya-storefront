@@ -17,6 +17,7 @@ import { IProductVariantsAttributesSelectedValues, ITaxedMoney } from "@types";
 import { TaxedMoney } from "../../@next/components/containers";
 import AddToCart from "./AddToCart";
 import { QuantityTextField } from "./QuantityTextField";
+import { OverlayType, OverlayTheme, OverlayContext } from "../Overlay";
 
 const LOW_STOCK_QUANTITY = 5;
 interface ProductDescriptionProps extends WrappedComponentProps {
@@ -117,11 +118,6 @@ class ProductDescription extends React.Component<
     return quantity !== 0 && variant && variantStock >= syncedQuantityWithCart;
   };
 
-  handleSubmit = () => {
-    this.props.addToCart(this.state.variant, this.state.quantity);
-    this.setState({ quantity: 0 });
-  };
-
   getAvailableQuantity = () => {
     const { items } = this.props;
     const { variant, variantStock } = this.state;
@@ -190,10 +186,17 @@ class ProductDescription extends React.Component<
             hideErrors={!variant || isOutOfStock || isNoItemsAvailable}
           />
         </div>
-        <AddToCart
-          onSubmit={this.handleSubmit}
-          disabled={!this.canAddToCart()}
-        />
+        <OverlayContext.Consumer>
+          {overlayContext => (
+            <AddToCart
+              onSubmit={() => {
+                this.props.addToCart(this.state.variant, this.state.quantity);
+                overlayContext.show(OverlayType.cart, OverlayTheme.right);
+              }}
+              disabled={!this.canAddToCart()}
+            />
+          )}
+        </OverlayContext.Consumer>
       </div>
     );
   }
