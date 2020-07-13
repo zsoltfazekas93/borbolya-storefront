@@ -15,8 +15,8 @@ import {
 import { IProductVariantsAttributesSelectedValues, ITaxedMoney } from "@types";
 
 import { TaxedMoney } from "../../@next/components/containers";
-import AddToCart from "./AddToCart";
-import { QuantityTextField } from "./QuantityTextField";
+import AddToCartButton from "../../@next/components/molecules/AddToCartButton";
+import QuantityInput from "../../@next/components/molecules/QuantityInput";
 import { OverlayType, OverlayTheme, OverlayContext } from "../Overlay";
 
 const LOW_STOCK_QUANTITY = 5;
@@ -27,8 +27,8 @@ interface ProductDescriptionProps extends WrappedComponentProps {
   pricing: ProductDetails_product_pricing;
   items: ICheckoutModelLine[];
   queryAttributes: Record<string, string>;
-  addToCart(varinatId: string, quantity?: number): void;
-  setVariantId(variantId: string);
+  setVariantId(variantId: string): void;
+  onAddToCart(variantId: string, quantity?: number): void;
   onAttributeChangeHandler(slug: string | null, value: string): void;
 }
 
@@ -178,7 +178,7 @@ class ProductDescription extends React.Component<
           />
         </div>
         <div className="product-description__quantity-input">
-          <QuantityTextField
+          <QuantityInput
             quantity={quantity}
             maxQuantity={availableQuantity}
             disabled={isOutOfStock || isNoItemsAvailable}
@@ -188,9 +188,9 @@ class ProductDescription extends React.Component<
         </div>
         <OverlayContext.Consumer>
           {overlayContext => (
-            <AddToCart
+            <AddToCartButton
               onSubmit={() => {
-                this.props.addToCart(this.state.variant, this.state.quantity);
+                this.props.onAddToCart(this.state.variant, this.state.quantity);
                 overlayContext.show(OverlayType.cart, OverlayTheme.right);
               }}
               disabled={!this.canAddToCart()}
