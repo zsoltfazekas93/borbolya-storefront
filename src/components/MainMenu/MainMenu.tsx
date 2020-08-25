@@ -49,6 +49,11 @@ const MainMenu: React.FC = () => {
     <OverlayContext.Consumer>
       {overlayContext => (
         <nav className="main-menu" id="header">
+          <div className="main-menu__center">
+            <Link to={appPaths.baseUrl}>
+              <ReactSVG path={logoImg} />
+            </Link>
+          </div>
           <div className="main-menu__left">
             <TypedMainMenuQuery renderOnError displayLoader={false}>
               {({ data }) => {
@@ -155,12 +160,6 @@ const MainMenu: React.FC = () => {
             </TypedMainMenuQuery>
           </div>
 
-          <div className="main-menu__center">
-            <Link to={appPaths.baseUrl}>
-              <ReactSVG path={logoImg} />
-            </Link>
-          </div>
-
           <div className="main-menu__right">
             <ul>
               <Online>
@@ -246,7 +245,7 @@ const MainMenu: React.FC = () => {
               >
                 <Media
                   query={{ minWidth: mediumScreen }}
-                  render={() => <span>Search</span>}
+                  render={() => <span></span>}
                 />
                 <ReactSVG path={searchImg} />
               </li>

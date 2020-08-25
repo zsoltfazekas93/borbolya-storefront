@@ -14,7 +14,7 @@ const AddToCart: React.FC<{
       }}
       disabled={disabled}
     >
-      Add to basket
+      Kosárba vele
     </AddToCartButton>
   );
 };

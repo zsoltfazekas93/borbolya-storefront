@@ -49,7 +49,6 @@ class AddToCartButton extends React.PureComponent<
           "product-description__action--fade": animate,
         })}
         onClick={this.handleAnimation}
-        color="primary"
         disabled={this.props.disabled}
       >
         <ReactCSSTransitionGroup

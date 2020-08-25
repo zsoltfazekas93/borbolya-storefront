@@ -1,4 +1,7 @@
 // colors
+@import url(https://fonts.googleapis.com/css2?family=Caveat&display=swap);
+
+
 $base-font-color: #323232;
 $black: #000;
 $blue-dark: #190c4e;
@@ -8,18 +11,18 @@ $gray-light: #f6f6f6;
 $gray: #c4c4c4;
 $green: #3ed256;
 $rose: #fe6e76;
-$turquoise-dark: #55c4b3;
+$turquoise-dark: #cf9791;
 $turquoise-light: #f1f5f5;
-$turquoise: #51e9d2;
-$white: #fff;
-$blue-overlay: rgba($blue, 0.15);
+$turquoise: #cf9791;
+$white: #edf3ed;
+$blue-overlay: #edf3ed;
 $autofillColor: rgb(250, 255, 189);
 $autofillColorSelected: rgb(232, 240, 254);
 
 // typography
-$base-font-family: "Inter", sans-serif;
-$base-font-size: 1rem; // 16px
-$small-font-size: 0.875rem; // 14px
+$base-font-family: 'Caveat', cursive;
+$base-font-size: 1.2rem; // 16px
+$small-font-size: 1rem; // 14px
 $base-line-height: 1.25rem; // 20px
 $h1-font-size: 4rem; // 64px
 $h1-line-height: 1;
