@@ -1,5 +1,8 @@
 // colors
-@import url(//fonts.googleapis.com/css?family=Caveat);
+@font-face {
+  font-family: 'Caveat';
+  src: url('/src/fonts/Caveat-Regular.ttf')  format('truetype');
+}
 
 $base-font-color: #323232;
 $black: #000;
@@ -19,7 +22,7 @@ $autofillColor: rgb(250, 255, 189);
 $autofillColorSelected: rgb(232, 240, 254);
 
 // typography
-$base-font-family: 'Caveat', cursive;
+$base-font-family: 'Caveat';
 $base-font-size: 1.2rem; // 16px
 $small-font-size: 1rem; // 14px
 $base-line-height: 1.25rem; // 20px
