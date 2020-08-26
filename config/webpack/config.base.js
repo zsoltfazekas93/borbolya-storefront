@@ -49,7 +49,6 @@ module.exports = ({ sourceDir, distDir }) => ({
               name: "[name].[ext]",
               outputPath: "fonts/",
               publicPath: "/fonts/",
-              esModule: false,
             },
           },
         ],
