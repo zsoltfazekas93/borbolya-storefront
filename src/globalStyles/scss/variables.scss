@@ -1,13 +1,4 @@
 // colors
-/* caveat-regular - latin */
-@font-face {
-  font-family: 'Caveat';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Caveat Regular'), local('Caveat-Regular'),
-       url('../fonts/caveat-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/caveat-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-}
 
 $base-font-color: #323232;
 $black: #000;
